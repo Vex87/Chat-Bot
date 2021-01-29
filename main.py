@@ -9,6 +9,7 @@ import speech_recognition
 import queue
 import threading
 import shutil
+import re
 
 def delete_contents(folder):
     for filename in os.listdir(folder):
@@ -34,8 +35,13 @@ def get_response(input_text):
             if pattern in input_text:
                 if "base_responses" in info:
                     random_base_response = random.choice(info["base_responses"])
-                    random_fill_response = random.choice(info["fill_responses"])
-                    return random_base_response.replace("[FILL_RESPONSE]", random_fill_response)
+                    while ("FILL_RESPONSE" in random_base_response):
+                        for match in re.finditer("FILL_RESPONSE", random_base_response):
+                            match_in_response = random_base_response[match.start():match.end() + 2]
+                            random_fill_response = random.choice(info[f"fill_responses_{random_base_response[match.end() + 1:match.end() + 2]}"])
+                            random_base_response = random_base_response.replace(f"[{match_in_response}]", random_fill_response)
+                            break
+                    return random_base_response
                 else:
                     return random.choice(info["responses"])
 

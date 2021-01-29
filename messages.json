@@ -1,11 +1,43 @@
 [
     {
-        "pattern": ["hi"],
-        "responses": ["Hello", "Howdy", "Hi", "Greetings"]
+        "pattern": [
+            "hi"
+        ],
+        "base_responses": [
+            "Hello. [FILL_RESPONSE_1]", 
+            "Howdy. [FILL_RESPONSE_1]", 
+            "Hi. [FILL_RESPONSE_1]", 
+            "Greetings. [FILL_RESPONSE_1]"
+        ],
+        "fill_responses_1": [
+            "How about you?",
+            "And you?",
+            "How are you?",
+            ""
+        ]
     },
     {
-        "pattern": ["how are you"],
-        "base_responses": ["I'm doing [FILL_RESPONSE]", "Doing [FILL_RESPONSE]", "I'm [FILL_RESPONSE]", "I am [FILL_RESPONSE]", "[FILL_RESPONSE]"],
-        "fill_responses": ["ok", "good", "fine", "great"]
+        "pattern": [
+            "how are you"
+        ],
+        "base_responses": [
+            "I'm doing [FILL_RESPONSE_1]. [FILL_RESPONSE_2]", 
+            "Doing [FILL_RESPONSE_1]. [FILL_RESPONSE_2]", 
+            "I'm [FILL_RESPONSE_1]. [FILL_RESPONSE_2]", 
+            "I am [FILL_RESPONSE_1]. [FILL_RESPONSE_2]", 
+            "[FILL_RESPONSE_1]. [FILL_RESPONSE_2]"
+        ],
+        "fill_responses_1": [
+            "ok", 
+            "good", 
+            "fine", 
+            "great"
+        ],
+        "fill_responses_2": [
+            "How about you?",
+            "And you?",
+            "How are you?",
+            ""
+        ]
     }
 ]
