@@ -29,10 +29,15 @@ def say_text(message):
     playsound.playsound(file_name)
 
 def get_response(input_text):
-    for message in data:
-        for response in message["pattern"]:
-            if response in input_text:
-                return random.choice(message["responses"])
+    for info in data:
+        for pattern in info["pattern"]:
+            if pattern in input_text:
+                if "base_responses" in info:
+                    random_base_response = random.choice(info["base_responses"])
+                    random_fill_response = random.choice(info["fill_responses"])
+                    return random_base_response.replace("[FILL_RESPONSE]", random_fill_response)
+                else:
+                    return random.choice(info["responses"])
 
 def get_voice():
     recognizer = speech_recognition.Recognizer()
@@ -42,7 +47,7 @@ def get_voice():
         try:
             return recognizer.recognize_google(audio) 
         except Exception:
-            say_text("Please repeat")
+            pass
 
 def watch_voice(voice_queue):
     while (True):

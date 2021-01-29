@@ -1,10 +1,11 @@
 [
     {
         "pattern": ["hi"],
-        "responses": ["Hello!"]
+        "responses": ["Hello", "Howdy", "Hi", "Greetings"]
     },
     {
         "pattern": ["how are you"],
-        "responses": ["I'm doing great!"]
+        "base_responses": ["I'm doing [FILL_RESPONSE]", "Doing [FILL_RESPONSE]", "I'm [FILL_RESPONSE]", "I am [FILL_RESPONSE]", "[FILL_RESPONSE]"],
+        "fill_responses": ["ok", "good", "fine", "great"]
     }
 ]
