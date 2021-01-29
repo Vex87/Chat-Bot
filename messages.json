@@ -1,0 +1,10 @@
+[
+    {
+        "pattern": ["hi"],
+        "responses": ["Hello!"]
+    },
+    {
+        "pattern": ["how are you"],
+        "responses": ["I'm doing great!"]
+    }
+]
